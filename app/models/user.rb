@@ -2,6 +2,7 @@ class User < ApplicationRecord
   before_create :generate_uuid
   validates :username, presence: true, uniqueness: true
   validates :first_name, presence: true
+  validates_length_of :records, maximum: 500 # Note: Add archiving mechanism to scale
 
   has_many :follows
   has_many :following, class_name: 'Follow', foreign_key: 'user_id'
@@ -13,10 +14,15 @@ class User < ApplicationRecord
   end
 
   def following_count
-    following.count
+    following.size
   end
 
   def followers_count
-    followers.count
+    followers.size
   end
+
+  def past_week_records
+    last_week_records = records.select{ |r| r.clock_in >= 7.days.ago && r.clock_in <= 1.hour.from_now && !r.clock_out.nil? }
+  end
+
 end

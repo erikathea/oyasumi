@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   namespace :v1 do
     defaults format: :json do
-      resources :users
+      resources :users do
+        resources :records, only: [:index, :update, :create], path_names: { create: 'clockin', update: 'clockout' }
+      end
     end
   end
 end
