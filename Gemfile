@@ -12,12 +12,14 @@ gem "jbuilder"
 gem "redis", "~> 4.0"
 gem "uuidtools"
 gem "paper_trail"
+gem "jsonapi-rails"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  gem "pry"
 end
 
 group :development do

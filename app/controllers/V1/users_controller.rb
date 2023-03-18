@@ -1,15 +1,15 @@
 class V1::UsersController < ApplicationController
   include ActionController::ImplicitRender
   include ActionView::Layouts
-  before_action :set_user, only: %i[ show edit update destroy ]
+  before_action :set_user, only: %i[ show edit update ]
 
   def index
     @users = User.all
-    render json: @users
+    render jsonapi: @users
   end
 
   def show
-    render json: @user, include: ['following', 'followers', 'records']
+    render jsonapi: @user, include: ['following', 'followers', 'records']
   end
 
   private
