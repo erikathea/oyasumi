@@ -1,15 +1,11 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+complete_record:
+  user: main_user
+  clock_in: 2023-03-17 21:10:26
+  clock_out: 2023-03-18 08:20:36
+  remarks: 'Complete sleep'
 
-one:
-  user_id: 1
-  clock_in: 2023-03-18 21:10:26
-  clock_out: 2023-03-18 21:10:26
-  remarks: MyString
-  time_zone: MyString
+clocked_in_only:
+  user: main_user
+  clock_in: 2023-03-18 22:09:06
+  remarks: 'Forgot to clock out'
 
-two:
-  user_id: 1
-  clock_in: 2023-03-18 21:10:26
-  clock_out: 2023-03-18 21:10:26
-  remarks: MyString
-  time_zone: MyString

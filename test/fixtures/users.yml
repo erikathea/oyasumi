@@ -1,11 +1,23 @@
-# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+main_user:
+  username: Bluey
+  first_name: Bluey Christina
+  last_name: Heeler
+  uuid: <%= SecureRandom.uuid %>
 
-one:
-  username: MyString
-  first_name: MyString
-  last_name: MyString
+following_one:
+  username: Bingo
+  first_name: Bingo
+  last_name: Heeler
+  uuid: <%= SecureRandom.uuid %>
 
-two:
-  username: MyString
-  first_name: MyString
-  last_name: MyString
+following_two:
+  username: Mum
+  first_name: Chili
+  last_name: Heeler
+  uuid: <%= SecureRandom.uuid %>
+
+following_back:
+  username: Dad
+  first_name: Bandit
+  last_name: Heeler
+  uuid: <%= SecureRandom.uuid %>

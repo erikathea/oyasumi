@@ -3,7 +3,9 @@ class User < ApplicationRecord
   validates :username, presence: true, uniqueness: true
   validates :first_name, presence: true
 
-  has_many :followed_users, class_name: 'Follow', foreign_key: 'followed_user_id'
+  has_many :follows
+  has_many :following, class_name: 'Follow', foreign_key: 'user_id'
+  has_many :followers, class_name: 'Follow', foreign_key: 'followed_user_id'
   has_many :records
 
   def generate_uuid
