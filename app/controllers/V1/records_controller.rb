@@ -7,7 +7,7 @@ class V1::RecordsController < ApplicationController
   end
 
   def create
-    return render jsonapi: record, status: :unprocessable_entity unless @user
+    return render jsonapi: nil, status: :unprocessable_entity unless @user
 
     clock_in = Time.current.utc.iso8601
     record = Record.create(user: @user, clock_in: clock_in)
@@ -20,7 +20,7 @@ class V1::RecordsController < ApplicationController
   end
 
   def update
-    return render jsonapi: record, status: :unprocessable_entity unless @user
+    return render jsonapi: nil, status: :unprocessable_entity unless @user
 
     clock_out = Time.current.utc.iso8601
     record = Record.find_by_id(record_params[:id])

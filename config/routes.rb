@@ -10,6 +10,9 @@ Rails.application.routes.draw do
         post 'clockout', to: 'records#update'
         get 'friends', to: 'users#friends'
       end
+
+      post 'follow', to: 'follows#create'
+      post 'unfollow', to: 'follows#destroy'
     end
   end
 end

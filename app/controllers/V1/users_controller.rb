@@ -3,6 +3,7 @@ class V1::UsersController < ApplicationController
   before_action :set_user, only: %i[ show friends ]
 
   def index
+    # TODO: Put in REDIS the list of all user UUIDs to enhance performance
     @users = User.all
     render jsonapi: @users
   end
