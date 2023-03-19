@@ -13,6 +13,8 @@ gem "redis", "~> 4.0"
 gem "uuidtools"
 gem "paper_trail"
 gem "jsonapi-rails"
+gem "timecop"
+# Note: Add gem for authentication and authorization
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false

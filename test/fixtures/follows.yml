@@ -13,3 +13,7 @@ three:
 four:
   user: following_back
   followed_user: main_user
+
+two_follow_back:
+  user: following_two
+  followed_user: main_user

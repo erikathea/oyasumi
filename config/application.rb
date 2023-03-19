@@ -12,14 +12,11 @@ module Oyasumi
     config.load_defaults 7.0
     config.api_only = true
     config.debug_exception_response_format = :api
-    config.action_controller.default_protect_from_forgery true
-
-    # Configuration for the application, engines, and railties goes here.
-    #
-    # These settings can be overridden in specific environments using the files
-    # in config/environments, which are processed later.
-    #
-    # config.time_zone = "Central Time (US & Canada)"
-    # config.eager_load_paths << Rails.root.join("extras")
+    config.action_controller.default_protect_from_forgery false
+    config.middleware.use ActionDispatch::Cookies
+    config.middleware.use ActionDispatch::Session::CookieStore
+    # Note: Add additional layers of security
+    #     https://guides.rubyonrails.org/v4.1.4/security.html
+    # config.force_ssl = true
   end
 end

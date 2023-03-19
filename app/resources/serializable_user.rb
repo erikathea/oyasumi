@@ -5,4 +5,5 @@ class SerializableUser < JSONAPI::Serializable::Resource
   attributes :username, :first_name, :last_name, :following_count, :followers_count
 
   has_many :records
+  has_many :past_week_records
 end

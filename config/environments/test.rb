@@ -32,6 +32,8 @@ Rails.application.configure do
 
   # Disable request forgery protection in test environment.
   config.action_controller.allow_forgery_protection = false
+  config.middleware.use ActionDispatch::Cookies
+  config.middleware.use ActionDispatch::Session::CookieStore
 
   # Store uploaded files on the local file system in a temporary directory.
   config.active_storage.service = :test
@@ -57,4 +59,10 @@ Rails.application.configure do
 
   # Annotate rendered view with file names.
   # config.action_view.annotate_rendered_view_with_filenames = true
+
+  config.after_initialize do
+    # Set Time.now to Mar 19, 2023 08:00:00 AM
+    t = Time.local(2023, 3, 19, 8, 0, 0)
+    Timecop.travel(t)
+  end
 end
