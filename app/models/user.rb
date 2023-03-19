@@ -9,6 +9,8 @@ class User < ApplicationRecord
   has_many :followers, class_name: 'Follow', foreign_key: 'followed_user_id'
   has_many :records, -> { order(clock_in: :desc) }
 
+  attribute :uuid, :string, default: -> { SecureRandom.uuid }
+
   def generate_uuid
     self.uuid = SecureRandom.uuid if self.uuid.blank?
   end
@@ -22,7 +24,9 @@ class User < ApplicationRecord
   end
 
   def past_week_records
-    last_week_records = records.select{ |r| r.clock_in >= 7.days.ago && r.clock_in <= 1.hour.from_now && !r.clock_out.nil? }
+    # TODO: Consider adding index
+    records.where(clock_in: 7.days.ago..1.hour.from_now).where.not(clock_out:
+nil).sort_by(&:duration).reverse
   end
 
 end

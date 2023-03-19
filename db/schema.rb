@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_03_18_203713) do
+ActiveRecord::Schema[7.0].define(version: 2023_03_19_002029) do
   create_table "follows", force: :cascade do |t|
     t.integer "user_id", null: false
     t.integer "followed_user_id", null: false
@@ -28,7 +28,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_18_203713) do
     t.string "time_zone", default: "UTC"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "duration"
+    t.integer "duration", default: 0
     t.index ["user_id", "remarks"], name: "index_records_on_user_id_and_remarks"
     t.index ["user_id"], name: "index_records_on_user_id"
   end
